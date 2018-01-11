@@ -2,16 +2,34 @@
 
     <form  id="form_graficar_fecha" class="navbar-form" id="form-create-dueno" role="form">
         <center>
-            <input type="hidden" id="reporte_salas" value="salas">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw" ></i> Inicial</span>
-                <input type="date" class="form-control" id="ff_inicio_salas" value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i> Final</span>
-                <input type="date" class="form-control" id="ff_final_salas" value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
-            </div>
-            <button type="button" class="btn btn-primary searchFecha_salas" ><i class="fa fa-search fa-fw"></i>  Buscar</button>
+            <div class="row"> 
+                <div class="input-group">
+                    <span class="input-group-addon"> Salas</span>
+                    <select id="objeto_salas" class="form-control">
+                        <option value="*">Todas</option>
+                        @foreach($salas as $sala)
+                        <option value="{{$sala->id  }}">{{ $sala->nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"> Estado</span>
+                    <select id="estado_salas" class="form-control">
+                        <option value="*">Todas</option>
+                        <option value="0">Sin Confirmar</option>
+                        <option value="1">Confirmadas</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw" ></i> Inicial</span>
+                    <input type="date" class="form-control" id="ff_inicio_salas" value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i> Final</span>
+                    <input type="date" class="form-control" id="ff_final_salas" value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
+                </div>
+            </div><br>
+            <button type="button" class="btn btn-primary btn-block searchFecha_salas" ><i class="fa fa-search fa-fw"></i>  Buscar</button>
         </center>
     </form>
 

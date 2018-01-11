@@ -105,6 +105,9 @@
                                  <li>
                                     <a  href="{!! URL::to('/misElementos/') !!}"><i class="fa fa-line-chart  fa-fw"></i> Elementos</a>
                                 </li>
+                                 <li>
+                                    <a data-toggle="modal" data-target="#infoReservas"><i class="fa fa-line-chart  fa-fw"></i> Informacion</a>
+                                </li>
                             </ul>
                        
                     </li>
@@ -119,6 +122,7 @@
             @include('alertas.success')
             @include('alertas.errores')
             @yield('content')
+            @include('modals.infoReservas')
         </div>
 
     </div>
@@ -128,7 +132,8 @@
     </footer>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    {!!Html::script("js/bootstrap.min.js")!!}
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     {!! Html::script("js/jquery.dataTables.min.js") !!}
 
     {!! Html::script("js/dataTables.responsive.min.js") !!}
@@ -150,6 +155,10 @@
       {!! Html::script("js/select2.min.js") !!}
      {!! Html::script("js/bootstrap-select.min.js") !!}
      @yield('js')
+     <script type="text/javascript">
+         $('#infoReservas').on('shown.bs.modal', function () {
+        })
+     </script>
 
 
      

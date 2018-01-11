@@ -15,8 +15,8 @@
 {!!Html::script("assets/c3/c3.js")!!}
     <script type="text/javascript">
 
-        $('.searchFecha_salas').click(function(event){ event.preventDefault(); var reporte = $('#reporte_salas').val();traerDatosfecha(reporte);});
-        $('.searchFecha_elementos').click(function(event){ event.preventDefault();var reporte = $('#reporte_elementos').val();traerDatosfecha(reporte);});
+        $('.searchFecha_salas').click(function(event){ event.preventDefault();  traerDatosfecha('salas');});
+        $('.searchFecha_elementos').click(function(event){ event.preventDefault(); traerDatosfecha('elementos');});
 
         $('.bar_salas, .pie_salas, .donut_salas').click(function(){ transformChart(this.id); });
          $('.bar_elementos, .pie_elementos, .donut_elementos').click(function(){ var id= $(this).attr('target'); transformChart(id); });
@@ -28,11 +28,13 @@
 		
         function  traerDatosfecha(reporte)
 		{
-			var reporte = $('#reporte_'+reporte).val();
 			var ff_inicio = $('#ff_inicio_'+reporte).val();
 			var ff_final = $('#ff_final_'+reporte).val();
-		    var url = "/reportes/"+reporte+"/ff_inicio/"+ff_inicio+"/ff_final/"+ff_final;
-		    console.log(url);
+			var estado = $('#estado_'+reporte).val();
+			var objeto = $('#objeto_'+reporte).val();
+
+		    var url = "/reportes/"+reporte+"/ff_inicio/"+ff_inicio+"/ff_final/"+ff_final+"/estado/"+estado+"/"+reporte+"/"+objeto;
+		    //console.log(url);
 
 			$.getJSON(url, function(data)
             {   
@@ -60,7 +62,7 @@
 			{
 			    var chartData = [];
 			    for (var i=0; i<datos.length; i++) {
-			        chartData.push([datos[i]['fecha_servicio'], datos[i]['conteo']]);
+			        chartData.push([datos[i]['objeto'], datos[i]['conteo']]);
 			    }
 			    //console.log(chartData);
 			    chart = c3.generate({

@@ -81,6 +81,10 @@ nav.navbar{
     color:#000;
 
 }
+.menu-user ul li 
+{
+  display: inline-block;
+}
 .navbar-top-links li:active{
     background-color: #000;
 } 

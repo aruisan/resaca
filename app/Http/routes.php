@@ -56,8 +56,8 @@ Route::group(['middleware' => ['auth', 'administrador']], function(){
 	 Route::resource('mireservaElementos', 'reservaElementosController@misReservas');
 
 	 Route::resource('reportes', 'ReportesController');
-	 Route::get('/reportes/salas/ff_inicio/{ff_inicio}/ff_final/{ff_final}', 'ReportesController@graficosSalas');
-	 Route::get('/reportes/elementos/ff_inicio/{ff_inicio}/ff_final/{ff_final}', 'ReportesController@graficosElementos');
+	 Route::get('/reportes/salas/ff_inicio/{ff_inicio}/ff_final/{ff_final}/estado/{estado}/salas/{salas}', 'ReportesController@graficosSalas');
+	 Route::get('/reportes/elementos/ff_inicio/{ff_inicio}/ff_final/{ff_final}/estado/{estado}/elementos/{elementos}', 'ReportesController@graficosElementos');
 });
  
 

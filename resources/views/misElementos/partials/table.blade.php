@@ -14,7 +14,7 @@
         <div id="mis" class="panel-body tab-pane fade in active">
             <div class="dataTable_wrapper">
                 <div class="container-fluid table-responsive">
-                    <a class="btn btn-primary pull-right" href="{{ url('/misSalas/create') }}" role="button"><span class="glyphicon glyphicon-plus"></span> Reservas</a>
+                    <a class="btn btn-primary pull-right" href="{{ url('/misElementos/create') }}" role="button"><span class="glyphicon glyphicon-plus"></span> Reservas</a>
                     <table class="table table-bordered cell-border table-hover" id="MyTable">
                         <thead>
                             <tr class="active">
